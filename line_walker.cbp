@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="video_opencv" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="./Build" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<MakeCommands>
+			<Build command="$make -f $makefile" />
+			<CompileFile command="$make -f $makefile $file" />
+			<Clean command="$make -f $makefile clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="$make -q -f $makefile $target" />
+			<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+		</MakeCommands>
+		<Build>
+			<Target title="Debug">
+				<Option output="./../Build/Debug/video_opencv" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Environment>
+					<Variable name="RELEASE_BUILD=no" value="" />
+				</Environment>
+				<MakeCommands>
+					<Build command="$make -f $makefile RELEASE_BUILD=no " />
+					<CompileFile command="$make -f $makefile $file RELEASE_BUILD=no" />
+					<Clean command="$make -f $makefile clean RELEASE_BUILD=no" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile RELEASE_BUILD=no" />
+					<SilentBuild command="$make -f $makefile RELEASE_BUILD=no  &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="./../Build/Release/video_opencv" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<MakeCommands>
+					<Build command="$make -f $makefile RELEASE_BUILD=yes" />
+					<CompileFile command="$make -f $makefile $file RELEASE_BUILD=yes" />
+					<Clean command="$make -f $makefile clean RELEASE_BUILD=yes" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile RELEASE_BUILD=yes" />
+					<SilentBuild command="$make -f $makefile RELEASE_BUILD=yes &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib/VP_SDK/" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib/VP_SDK/VP_Os/linux" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib/Soft/Lib" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib" />
+			<Add directory="/usr/include/gtk-2.0" />
+			<Add directory="/usr/include/glib-2.0" />
+			<Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+			<Add directory="/usr/include/cairo" />
+			<Add directory="/usr/include/pango-1.0" />
+			<Add directory="/usr/lib/i386-linux-gnu/gtk-2.0/include" />
+			<Add directory="/usr/include/gdk-pixbuf-2.0" />
+			<Add directory="/usr/include/atk-1.0" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib/Soft/Build/targets_versions/ardrone_lib_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib/Soft/Common" />
+			<Add directory="/home/fdr91/ARDrone_SDK_2_0_1/ARDroneLib/FFMPEG/Includes" />
+			<Add directory="Sources" />
+			<Add directory="../../../../opencv246/opencv/include/opencv" />
+		</Compiler>
+		<Linker>
+			<Add option="-lrt -lgtk-x11-2.0 -lcairo -lgdk-x11-2.0 -lgobject-2.0 -lm -lopencv_highgui -lopencv_core -lopencv_imgproc" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libsdk.a" />
+			<Add library="/lib/i386-linux-gnu/libpthread.so.0" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ardrone_lib_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libpc_ardrone.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ardrone_lib_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libpc_ardrone_notool.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_i686_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libswscale.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_i686_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavutil.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_i686_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavformat.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_i686_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavfilter.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_i686_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavdevice.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_i686_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavcodec.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_static_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libswscale.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_static_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavutil.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_static_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavformat.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_static_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavfilter.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_static_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavdevice.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/ffmpeg_static_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libavcodec.a" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/vlib_PROD_MODE_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/libvlib.a" />
+			<Add library="/usr/local/lib/libopencv_bioinspired.so" />
+			<Add library="/usr/local/lib/libopencv_calib3d.so" />
+			<Add library="/usr/local/lib/libopencv_contrib.so" />
+			<Add library="/usr/local/lib/libopencv_core.so" />
+			<Add library="/usr/local/lib/libopencv_features2d.so" />
+			<Add library="/usr/local/lib/libopencv_flann.so" />
+			<Add library="/usr/local/lib/libopencv_gpu.so" />
+			<Add library="/usr/local/lib/libopencv_gpuarithm.so" />
+			<Add library="/usr/local/lib/libopencv_gpubgsegm.so" />
+			<Add library="/usr/local/lib/libopencv_gpucodec.so" />
+			<Add library="/usr/local/lib/libopencv_gpufeatures2d.so" />
+			<Add library="/usr/local/lib/libopencv_gpufilters.so" />
+			<Add library="/usr/local/lib/libopencv_gpuimgproc.so" />
+			<Add library="/usr/local/lib/libopencv_gpuoptflow.so" />
+			<Add library="/usr/local/lib/libopencv_gpustereo.so" />
+			<Add library="/usr/local/lib/libopencv_gpuwarping.so" />
+			<Add library="/usr/local/lib/libopencv_highgui.so" />
+			<Add library="/usr/local/lib/libopencv_imgproc.so" />
+			<Add library="/usr/local/lib/libopencv_legacy.so" />
+			<Add library="/usr/local/lib/libopencv_ml.so" />
+			<Add library="/usr/local/lib/libopencv_nonfree.so" />
+			<Add library="/usr/local/lib/libopencv_objdetect.so" />
+			<Add library="/usr/local/lib/libopencv_photo.so" />
+			<Add library="/usr/local/lib/libopencv_softcascade.so" />
+			<Add library="/usr/local/lib/libopencv_stitching.so" />
+			<Add library="/usr/local/lib/libopencv_superres.so" />
+			<Add library="/usr/local/lib/libopencv_ts.so" />
+			<Add library="/usr/local/lib/libopencv_video.so" />
+			<Add library="/usr/local/lib/libopencv_videostab.so" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/ATcodec/ATcodec_api.o" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/ATcodec/ATcodec.o" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/ATcodec/ATcodec_Buffer.o" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/ATcodec/ATcodec_Memory.o" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/ATcodec/ATcodec_Sorted_List.o" />
+			<Add library="../../../ARDroneLib/Soft/Build/targets_versions/sdk_PROD_MODE_vlib_Linux_3.8.0-26-generic_GNU_Linux_usrbingcc_4.7.3/ATcodec/ATcodec_Tree.o" />
+		</Linker>
+		<Unit filename="../ARDroneLib/VP_SDK/Build/Makefile" />
+		<Unit filename="../Makefile" />
+		<Unit filename="Build/Makefile" />
+		<Unit filename="Sources/Navdata/navdata.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/Navdata/navdata.h" />
+		<Unit filename="Sources/Video/display_stage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/Video/display_stage.h" />
+		<Unit filename="Sources/Video/post_stage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/Video/post_stage.h" />
+		<Unit filename="Sources/Video/pre_stage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/Video/pre_stage.h" />
+		<Unit filename="Sources/ardrone_testing_tool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/controls.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/controls.h" />
+		<Unit filename="Sources/image_processing.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

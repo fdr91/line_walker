@@ -1,0 +1,1 @@
+double roll = navdata.demo.phi * 0.001 * DEG_TO_RAD;
