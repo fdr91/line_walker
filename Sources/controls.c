@@ -47,7 +47,7 @@
  * vertical speed (in millimeters per second) and angular speed (in degrees per second).
  */
 
-
+int direction;
 
 control_data_t update_control_data(CvPoint gravity_center_c,int keyboard)
 {
@@ -79,10 +79,15 @@ control_data_t update_control_data(CvPoint gravity_center_c,int keyboard)
                 control_data1.start=0;
                 break;
             }
+            case 38:
+            {
+                direction=(direction+1)%4;
+            }
         }
     }
-    control_data1.roll=(float)(gravity_center.y-180)/360;
-    control_data1.phi=(float)(0.1);
+    control_data1.roll=-0.1;//(float)(-0.1);
+    control_data1.phi=0;//-0.1;
+    //control_data1.phi=(float)(gravity_center.x-320)/640;;
     prev_keyboard=keyboard;
 
     return control_data1;
@@ -108,8 +113,32 @@ send_control_data(control_data_t control_data)
     }
     else
     {
-        ardrone_at_set_progress_cmd(1, control_data.phi,control_data.roll,control_data.gaz,control_data.yaw);//control_data.pitch,control_data.roll,control_data.gaz, control_data.yaw);
-        vp_os_delay(1);
+
+        /*switch(direction)
+        {
+            case 0:
+            {
+                ardrone_at_set_progress_cmd(1, -1,0,0,0);
+                break;
+            }
+            case 1:
+            {
+                ardrone_at_set_progress_cmd(1, 0,-0.5,0,0);
+                break;
+            }
+            case 2:
+            {
+                ardrone_at_set_progress_cmd(1, 0,0,-0.5,0);
+                break;
+            }
+            case 3:
+            {
+                ardrone_at_set_progress_cmd(1, 0,0,0,-0.5);
+                break;
+            }
+         }*/
+        ardrone_at_reset_com_watchdog();
+        ardrone_at_set_progress_cmd(1, 0,(float32_t)-1,0,0);
     }
 
 
@@ -150,12 +179,6 @@ DEFINE_THREAD_ROUTINE(control_prepare, data)
         navdata_data1_t ndata=navigation_data;
         vp_os_mutex_unlock(&navigation_data_lock);
         curr_time=cvGetTickCount();
-        /*
-        fprintf(fo, "%5d cur_time=%f\t", seq++,curr_time);
-        fprintf(fo, "gc.x=%4d,\tgc.y=%4d", gravity_center_c.x, gravity_center_c.y);
-        fprintf(fo, "cd.roll=%1.5f,\tcd.phi=%1.5f\t", control_data.roll, control_data.phi);
-        fprintf(fo, "ndata.phi=%4.3f\tndata.psi=%4.3f\tndata.theta=%4.3f\tndata.vx=%4.3f\tndata.vy=%4.3f\tndata.vz=%4.3f\n", ndata.phi, ndata.psi, ndata.theta, ndata.vx, ndata.vy, ndata.vz);
-        */
         vp_os_delay(20);
     }
     fclose(fo);
@@ -167,7 +190,7 @@ DEFINE_THREAD_ROUTINE(control_prepare, data)
 DEFINE_THREAD_ROUTINE( comm_control, data )
 {
 
-    PRINT( "Initilizing Thread \n" );
+    PRINT( "\n\n\n*****************Initilizing Thread comm_control************\n\n\n\n" );
 
     control_data_t control_send;
     while(exit_program)
